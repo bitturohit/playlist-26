@@ -1,9 +1,9 @@
-import faker from "faker";
+import { faker } from "@faker-js/faker";
 
 export const createRandomMovie = () => {
-   return `${faker.hacker.adjective()} ${faker.hacker.noun()}`;
+   return `${faker.word.adjective()} ${faker.word.noun()}`;
 };
 
 export const createRandomSong = () => {
-   return faker.music.genre();
+   return faker.music.songName();
 };

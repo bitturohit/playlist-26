@@ -8,7 +8,8 @@ const songsSlice = createSlice({
          state.push(action.payload);
       },
       removeSong(state, action) {
-         //
+         const index = state.indexOf(action.payload);
+         state.splice(index, 1);
       },
    },
 });
@@ -19,15 +20,16 @@ const store = configureStore({
    },
 });
 
+export { store };
+export const { addSong, removeSong } = songsSlice.actions;
+
 // console.log(store);
+// console.log(songsSlice.actions.addSong("Some Song"));
 
-const startingState = store.getState();
-console.log(JSON.stringify(startingState));
+// const startingState = store.getState();
+// console.log(JSON.stringify(startingState));
 
-store.dispatch({
-   type: "song/addSong",
-   payload: "New Song",
-});
+// store.dispatch(songsSlice.actions.addSong("Some Song"));
 
-const finalState = store.getState();
-console.log(JSON.stringify(finalState));
+// const finalState = store.getState();
+// console.log(JSON.stringify(finalState));
